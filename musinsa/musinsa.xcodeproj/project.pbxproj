@@ -102,7 +102,6 @@
 		6C7CE939287E730B00CADF95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6C7CE94F287E82C900CADF95 /* EndPoint */,
 				6C7CE94E287E828800CADF95 /* API */,
 			);
 			name = Model;
@@ -128,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				6C7CE94C287E827C00CADF95 /* NetworkManager.swift */,
+				6C7CE94F287E82C900CADF95 /* EndPoint */,
 			);
 			path = API;
 			sourceTree = "<group>";
