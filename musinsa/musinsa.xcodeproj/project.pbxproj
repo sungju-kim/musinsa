@@ -31,6 +31,7 @@
 		6C7CE971287E919A00CADF95 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6C7CE96E287E919A00CADF95 /* SF-Pro-Display-Semibold.otf */; };
 		6C7CE974287E97B700CADF95 /* LayoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7CE973287E97B700CADF95 /* LayoutFactory.swift */; };
 		6C7CE976287E984200CADF95 /* MainLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7CE975287E984200CADF95 /* MainLayoutSection.swift */; };
+		6C7CE979287E9DA900CADF95 /* GoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7CE978287E9DA900CADF95 /* GoodsCell.swift */; };
 		6C7CE97B287EA19900CADF95 /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7CE97A287EA19900CADF95 /* UILabel+extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		6C7CE96E287E919A00CADF95 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
 		6C7CE973287E97B700CADF95 /* LayoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutFactory.swift; sourceTree = "<group>"; };
 		6C7CE975287E984200CADF95 /* MainLayoutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLayoutSection.swift; sourceTree = "<group>"; };
+		6C7CE978287E9DA900CADF95 /* GoodsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsCell.swift; sourceTree = "<group>"; };
 		6C7CE97A287EA19900CADF95 /* UILabel+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				6C7CE972287E97AE00CADF95 /* Support */,
+				6C7CE977287E9D8800CADF95 /* Cell */,
 				6C7CE924287E722900CADF95 /* MainViewController.swift */,
 			);
 			path = Present;
@@ -211,6 +214,14 @@
 				6C7CE975287E984200CADF95 /* MainLayoutSection.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		6C7CE977287E9D8800CADF95 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6C7CE978287E9DA900CADF95 /* GoodsCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +335,7 @@
 				6C7CE921287E722900CADF95 /* AppDelegate.swift in Sources */,
 				6C7CE964287E8D5000CADF95 /* GoodsEntity.swift in Sources */,
 				6C7CE962287E8D3D00CADF95 /* StyleEntity.swift in Sources */,
+				6C7CE979287E9DA900CADF95 /* GoodsCell.swift in Sources */,
 				6C7CE95C287E8D0300CADF95 /* HeaderEntity.swift in Sources */,
 				6C7CE923287E722900CADF95 /* SceneDelegate.swift in Sources */,
 				6C7CE97B287EA19900CADF95 /* UILabel+extension.swift in Sources */,
