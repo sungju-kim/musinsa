@@ -21,19 +21,19 @@ final class BannerCell: UICollectionViewCell {
         return imageView
     }()
 
-    private lazy var keywordLabel: UILabel = .makeCustomLabel("", .SFProDisplay.semiBold(12), .Musinsa.mainBackGroundColor)
+    private lazy var keywordLabel: UILabel = .makeCustomLabel(" ", .SFProDisplay.semiBold(12), .Musinsa.mainBackGroundColor)
     private lazy var titleLabel: UILabel = {
-        let label: UILabel = .makeCustomLabel("", .SFProDisplay.bold(20), .Musinsa.mainBackGroundColor)
+        let label: UILabel = .makeCustomLabel(" ", .SFProDisplay.bold(20), .Musinsa.mainBackGroundColor)
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 2
         return label
     }()
-    private lazy var descriptionLabel: UILabel = .makeCustomLabel("", .SFProDisplay.regular(12), .Musinsa.mainBackGroundColor)
+    private lazy var descriptionLabel: UILabel = .makeCustomLabel(" ", .SFProDisplay.regular(12), .Musinsa.mainBackGroundColor)
 
     // MARK: - TODO 페이징 기능 구현 필요
 
     private lazy var pageLabel: UILabel = {
-        let label: UILabel = .makeCustomLabel("", .SFProDisplay.regular(12), .Musinsa.mainBackGroundColor)
+        let label: UILabel = .makeCustomLabel(" ", .SFProDisplay.regular(12), .Musinsa.mainBackGroundColor)
         label.backgroundColor = .systemGray
         return label
     }()
@@ -113,3 +113,14 @@ private extension BannerCell {
         }
     }
 }
+
+// MARK: - Configure
+
+extension BannerCell: Cellable {
+    func configure(with domain: CellModelable) {
+        guard let domain = domain as? Banner else { return }
+        titleLabel.text = domain.title
+        descriptionLabel.text = domain.description
+    }
+}
+

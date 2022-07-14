@@ -43,3 +43,12 @@ private extension StyleCell {
         }
     }
 }
+
+// MARK: - Providing Function
+
+extension StyleCell: Cellable {
+    func configure(with domain: CellModelable) {
+        guard let domain = domain as? Style else { return }
+    }
+
+}

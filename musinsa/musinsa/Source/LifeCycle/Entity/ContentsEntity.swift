@@ -23,12 +23,12 @@ extension ContentsEntity: DomainConvertable {
     func toDomain() -> [CellModelable] {
         guard let type = SectionType.init(rawValue: type) else { return [] }
         switch type {
-        case .banner, .grid:
+        case .banner:
             return self.banners?.map { $0.toDomain() } ?? []
-        case .scroll:
-            return self.styles?.map { $0.toDomain() } ?? []
-        case .style:
+        case .scroll, .grid:
             return self.merchandise?.map { $0.toDomain() } ?? []
+        case .style:
+            return self.styles?.map { $0.toDomain() } ?? []
         }
     }
 }

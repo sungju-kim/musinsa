@@ -16,11 +16,16 @@ final class MainViewDataSource: NSObject, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GoodsCell.identifier, for: indexPath) as? GoodsCell else {
+        guard let cellDomain = domain?[indexPath.section].contents[indexPath.item] else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellDomain.identifier, for: indexPath) as? Cellable else {
             return UICollectionViewCell()
         }
-
+        cell.configure(with: cellDomain)
         return cell
+    }
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return domain?.count ?? 0
     }
 }
 

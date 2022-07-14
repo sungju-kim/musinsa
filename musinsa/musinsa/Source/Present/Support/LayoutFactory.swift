@@ -5,7 +5,6 @@
 //  Created by dale on 2022/07/13.
 //
 
-import Foundation
 import UIKit
 
 enum LayoutFactory {
@@ -29,25 +28,27 @@ enum LayoutFactory {
 
     static func createGoodsSection(scrollable: Bool) -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(0.5)
+            widthDimension: .fractionalWidth(1/3),
+            heightDimension: .fractionalHeight(1.0)
         )
 
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(0.5)
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(200)
         )
 
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
-        let section = NSCollectionLayoutSection(group: group)
+        var section = NSCollectionLayoutSection(group: group)
 
-        if scrollable {
-            section.orthogonalScrollingBehavior = .continuous
+        if !scrollable {
+            let containerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(400))
+            let groupContainer = NSCollectionLayoutGroup.vertical(layoutSize: containerSize, subitem: group, count: 2)
+            section = NSCollectionLayoutSection(group: groupContainer)
         }
-
+        section.orthogonalScrollingBehavior = .groupPaging
         return section
     }
 

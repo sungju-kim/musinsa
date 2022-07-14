@@ -8,9 +8,5 @@
 import Foundation
 
 enum MainLayoutSection: Int, CaseIterable {
-    case goods, goodsScroll, banner, style
-
-    var indexSet: IndexSet {
-        return IndexSet(integer: rawValue)
-    }
+    case banner, goods, goodsScroll, style
 }

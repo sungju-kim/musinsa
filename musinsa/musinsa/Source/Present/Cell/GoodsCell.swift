@@ -19,12 +19,12 @@ final class GoodsCell: UICollectionViewCell {
         return imageView
     }()
 
-    private lazy var titleLabel: UILabel = .makeCustomLabel("title", .SFProDisplay.regular(12), .gray)
-    private lazy var priceLabel: UILabel = .makeCustomLabel("000,000원", .SFProDisplay.bold(12), .black)
-    private lazy var discountLabel: UILabel = .makeCustomLabel("20%", .SFProDisplay.bold(8), .red)
+    private lazy var titleLabel: UILabel = .makeCustomLabel(" ", .SFProDisplay.regular(12), .gray)
+    private lazy var priceLabel: UILabel = .makeCustomLabel(" ", .SFProDisplay.bold(12), .black)
+    private lazy var discountLabel: UILabel = .makeCustomLabel(" ", .SFProDisplay.bold(8), .red)
 
     private lazy var couponLabel: UILabel = {
-        let label: UILabel = .makeCustomLabel("쿠폰", .SFProDisplay.semiBold(8), .Musinsa.mainBackGroundColor)
+        let label: UILabel = .makeCustomLabel(" ", .SFProDisplay.semiBold(8), .Musinsa.mainBackGroundColor)
         label.backgroundColor = .blue
         label.textAlignment = .center
         return label
@@ -85,5 +85,18 @@ private extension GoodsCell {
             make.leading.trailing.bottom.equalToSuperview()
             make.height.equalTo(priceLabel.intrinsicContentSize.height)
         }
+    }
+}
+
+// MARK: - Configure
+
+extension GoodsCell: Cellable {
+    func configure(with domain: CellModelable) {
+        guard let domain = domain as? Goods else { return }
+        titleLabel.text = domain.brandName
+        couponLabel.isHidden = !domain.hasCoupon
+        priceLabel.text = "\(domain.price)"
+        discountLabel.text = "\(domain.saleRate)"
+
     }
 }

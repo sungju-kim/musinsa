@@ -8,6 +8,7 @@
 import Foundation
 
 struct Goods: CellModelable {
+    let identifier: String = GoodsCell.identifier
     let linkUrl: String
     let thumbnailURL: String
     let brandName: String
