@@ -97,6 +97,16 @@ extension GoodsCell: Cellable {
         couponLabel.isHidden = !domain.hasCoupon
         priceLabel.text = "\(domain.price)"
         discountLabel.text = "\(domain.saleRate)"
-
+        ImageManager.shared.downLoadImage(from: domain.thumbnailURL) { [weak self] result in
+            switch result {
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.imageView.image = image
+                }
+            case .failure(let error):
+                _ = error
+                // MARK: - TODO Error Handling
+            }
+        }
     }
 }

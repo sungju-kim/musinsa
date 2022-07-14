@@ -121,6 +121,16 @@ extension BannerCell: Cellable {
         guard let domain = domain as? Banner else { return }
         titleLabel.text = domain.title
         descriptionLabel.text = domain.description
+        ImageManager.shared.downLoadImage(from: domain.thumbnailURL) { [weak self] result in
+            switch result {
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.imageView.image = image
+                }
+            case .failure(let error):
+                _ = error
+                // MARK: - TODO Error Handling
+            }
+        }
     }
 }
-
