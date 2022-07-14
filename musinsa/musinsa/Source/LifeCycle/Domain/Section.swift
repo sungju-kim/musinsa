@@ -9,6 +9,6 @@ import Foundation
 
 struct Section {
     let contents: Contents
-    let header: Header
-    let footer: Footer
+    let header: Header?
+    let footer: Footer?
 }

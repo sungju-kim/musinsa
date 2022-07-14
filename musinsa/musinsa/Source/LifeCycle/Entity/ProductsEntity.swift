@@ -9,6 +9,10 @@ import Foundation
 
 struct ProductsEntity: Decodable {
     let sections: [SectionEntity]
+
+    enum CodingKeys: String, CodingKey {
+        case sections = "data"
+    }
 }
 
 extension ProductsEntity: DomainConvertable {

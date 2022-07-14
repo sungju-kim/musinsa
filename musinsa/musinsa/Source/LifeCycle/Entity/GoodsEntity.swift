@@ -8,7 +8,7 @@
 import Foundation
 
 struct GoodsEntity: Decodable {
-    let linkUrl: String
+    let linkURL: String
     let thumbnailURL: String
     let brandName: String
     let price: Int
@@ -18,7 +18,7 @@ struct GoodsEntity: Decodable {
 
 extension GoodsEntity: DomainConvertable {
     func toDomain() -> Goods {
-        return Goods(linkUrl: linkUrl,
+        return Goods(linkUrl: linkURL,
                      thumbnailURL: thumbnailURL,
                      brandName: brandName,
                      price: price,
