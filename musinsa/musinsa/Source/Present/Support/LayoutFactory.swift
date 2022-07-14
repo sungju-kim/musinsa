@@ -27,12 +27,15 @@ enum LayoutFactory {
     }
 
     static func createGoodsSection(scrollable: Bool) -> NSCollectionLayoutSection {
+        let inset: CGFloat = 8
+
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1/3),
             heightDimension: .fractionalHeight(1.0)
         )
 
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = .init(top: inset, leading: inset, bottom: inset, trailing: inset)
 
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
@@ -53,12 +56,14 @@ enum LayoutFactory {
     }
 
     static func createBannerSection() -> NSCollectionLayoutSection {
+        let inset: CGFloat = 8
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalWidth(1.0)
         )
 
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = .init(top: inset, leading: inset, bottom: inset, trailing: inset)
 
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitem: item, count: 1)
 
@@ -70,12 +75,14 @@ enum LayoutFactory {
     }
 
     static func createStyleSection() -> NSCollectionLayoutSection {
+        let inset: CGFloat = 8
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalHeight(1.0)
         )
 
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = .init(top: inset, leading: inset, bottom: inset, trailing: inset)
 
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
