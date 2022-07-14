@@ -8,13 +8,14 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    private var domain: Products?
 
+    private let dataSource = MainViewDataSource()
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: LayoutFactory.create())
         collectionView.register(GoodsCell.self, forCellWithReuseIdentifier: GoodsCell.identifier)
         collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.identifier)
         collectionView.register(StyleCell.self, forCellWithReuseIdentifier: StyleCell.identifier)
+        collectionView.dataSource = dataSource
         return collectionView
     }()
 
@@ -40,7 +41,7 @@ private extension MainViewController {
 // MARK: - Providing Function
 
 extension MainViewController {
-    func setDomain(with domain: Products) {
-        self.domain = domain
+    func setDomain(with domain: [Section]) {
+        dataSource.setDomain(with: domain)
     }
 }
