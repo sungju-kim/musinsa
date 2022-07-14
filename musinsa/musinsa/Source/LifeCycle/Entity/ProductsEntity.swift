@@ -16,8 +16,7 @@ struct ProductsEntity: Decodable {
 }
 
 extension ProductsEntity: DomainConvertable {
-    func toDomain() -> Products {
-        let sections = sections.map { $0.toDomain() }
-        return Products(sections: sections)
+    func toDomain() -> [Section] {
+        return sections.map { $0.toDomain() }
     }
 }

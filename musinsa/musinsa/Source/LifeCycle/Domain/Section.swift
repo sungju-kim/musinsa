@@ -8,7 +8,11 @@
 import Foundation
 
 struct Section {
-    let contents: Contents
+    let contents: [CellModelable]
     let header: Header?
     let footer: Footer?
+
+    var count: Int {
+        return contents.count
+    }
 }

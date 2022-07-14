@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Banner {
+struct Banner: CellModelable {
     let linkURL: String
     let thumbnailURL: String
     let title, description, keyword: String

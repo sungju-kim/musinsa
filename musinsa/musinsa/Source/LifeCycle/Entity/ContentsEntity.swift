@@ -20,13 +20,15 @@ struct ContentsEntity: Decodable {
 }
 
 extension ContentsEntity: DomainConvertable {
-    func toDomain() -> Contents {
-        let banners = banners?.map { $0.toDomain() }
-        let merchandise = merchandise?.map { $0.toDomain() }
-        let styles = styles?.map { $0.toDomain() }
-        return Contents(type: type,
-                        banners: banners,
-                        merchandise: merchandise,
-                        styles: styles)
+    func toDomain() -> [CellModelable] {
+        guard let type = SectionType.init(rawValue: type) else { return [] }
+        switch type {
+        case .banner, .grid:
+            return self.banners?.map { $0.toDomain() } ?? []
+        case .scroll:
+            return self.styles?.map { $0.toDomain() } ?? []
+        case .style:
+            return self.merchandise?.map { $0.toDomain() } ?? []
+        }
     }
 }

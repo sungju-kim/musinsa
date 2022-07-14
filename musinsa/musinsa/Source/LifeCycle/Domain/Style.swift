@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Style {
+struct Style: CellModelable {
     let linkURL: String
     let thumbnailURL: String
 }

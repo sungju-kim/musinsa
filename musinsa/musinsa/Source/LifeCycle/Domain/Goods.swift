@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Goods {
+struct Goods: CellModelable {
     let linkUrl: String
     let thumbnailURL: String
     let brandName: String
