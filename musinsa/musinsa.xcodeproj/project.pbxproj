@@ -21,6 +21,7 @@
 		6C3A2B44287FF559006A8DC7 /* Cellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3A2B43287FF559006A8DC7 /* Cellable.swift */; };
 		6C3A2B4628800E9F006A8DC7 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3A2B4528800E9F006A8DC7 /* ImageManager.swift */; };
 		6C3A2B4828800FE5006A8DC7 /* CacheError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3A2B4728800FE5006A8DC7 /* CacheError.swift */; };
+		6C3A2B4D2880316E006A8DC7 /* Int+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3A2B4C2880316E006A8DC7 /* Int+extension.swift */; };
 		6C7CE921287E722900CADF95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7CE920287E722900CADF95 /* AppDelegate.swift */; };
 		6C7CE923287E722900CADF95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7CE922287E722900CADF95 /* SceneDelegate.swift */; };
 		6C7CE925287E722900CADF95 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7CE924287E722900CADF95 /* MainViewController.swift */; };
@@ -66,6 +67,7 @@
 		6C3A2B43287FF559006A8DC7 /* Cellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cellable.swift; sourceTree = "<group>"; };
 		6C3A2B4528800E9F006A8DC7 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		6C3A2B4728800FE5006A8DC7 /* CacheError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheError.swift; sourceTree = "<group>"; };
+		6C3A2B4C2880316E006A8DC7 /* Int+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+extension.swift"; sourceTree = "<group>"; };
 		6C7CE91D287E722900CADF95 /* musinsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = musinsa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7CE920287E722900CADF95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C7CE922287E722900CADF95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,13 @@
 			isa = PBXGroup;
 			children = (
 				6C3A2B41287FEF35006A8DC7 /* SectionType.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		6C3A2B49288026B7006A8DC7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -192,6 +201,7 @@
 		6C7CE93A287E731100CADF95 /* Present */ = {
 			isa = PBXGroup;
 			children = (
+				6C3A2B49288026B7006A8DC7 /* Common */,
 				6C7CE972287E97AE00CADF95 /* Support */,
 				6C7CE977287E9D8800CADF95 /* Cell */,
 				6C7CE924287E722900CADF95 /* MainViewController.swift */,
@@ -250,6 +260,7 @@
 				6C7CE968287E8F5400CADF95 /* UIColor+extension.swift */,
 				6C7CE96A287E903300CADF95 /* UIFont+extension.swift */,
 				6C7CE97A287EA19900CADF95 /* UILabel+extension.swift */,
+				6C3A2B4C2880316E006A8DC7 /* Int+extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -397,6 +408,7 @@
 				6C7CE955287E854C00CADF95 /* BannerEntity.swift in Sources */,
 				6C7CE94D287E827C00CADF95 /* NetworkManager.swift in Sources */,
 				6C7CE925287E722900CADF95 /* MainViewController.swift in Sources */,
+				6C3A2B4D2880316E006A8DC7 /* Int+extension.swift in Sources */,
 				6C7CE953287E831700CADF95 /* NetworkError.swift in Sources */,
 				6C7CE976287E984200CADF95 /* MainLayoutSection.swift in Sources */,
 				6C7CE921287E722900CADF95 /* AppDelegate.swift in Sources */,

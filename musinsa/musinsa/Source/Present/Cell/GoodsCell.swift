@@ -24,9 +24,11 @@ final class GoodsCell: UICollectionViewCell {
     private lazy var discountLabel: UILabel = .makeCustomLabel(" ", .SFProDisplay.bold(8), .red)
 
     private lazy var couponLabel: UILabel = {
-        let label: UILabel = .makeCustomLabel(" ", .SFProDisplay.semiBold(8), .Musinsa.mainBackGroundColor)
-        label.backgroundColor = .blue
+        let label: UILabel = .makeCustomLabel("쿠폰", .SFProDisplay.semiBold(8), .Musinsa.mainBackGroundColor)
+        label.backgroundColor = UIColor.tintColor
         label.textAlignment = .center
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 3
         return label
     }()
 
@@ -95,8 +97,15 @@ extension GoodsCell: Cellable {
         guard let domain = domain as? Goods else { return }
         titleLabel.text = domain.brandName
         couponLabel.isHidden = !domain.hasCoupon
-        priceLabel.text = "\(domain.price)"
-        discountLabel.text = "\(domain.saleRate)"
+        priceLabel.text = domain.price.decimalWon()
+        discountLabel.text = "\(domain.saleRate)%"
+
+        if let text = discountLabel.text {
+            let attributed = NSMutableAttributedString(string: text)
+            attributed.addAttribute(.font, value: UIFont.SFProDisplay.semiBold(6) as Any, range: (text as NSString).range(of: "%"))
+            discountLabel.attributedText = attributed
+        }
+
         ImageManager.shared.downLoadImage(from: domain.thumbnailURL) { [weak self] result in
             switch result {
             case .success(let image):
