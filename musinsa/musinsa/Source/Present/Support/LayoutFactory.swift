@@ -22,6 +22,11 @@ enum LayoutFactory {
             case .style:
                 section = createStyleSection()
             }
+            section.boundarySupplementaryItems = [
+                NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1.0),
+                                                                              heightDimension: .absolute(56)),
+                                                            elementKind: UICollectionView.elementKindSectionHeader,
+                                                            alignment: .top)]
             return section
         }
     }

@@ -15,6 +15,7 @@ final class MainViewController: UIViewController {
         collectionView.register(GoodsCell.self, forCellWithReuseIdentifier: GoodsCell.identifier)
         collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.identifier)
         collectionView.register(StyleCell.self, forCellWithReuseIdentifier: StyleCell.identifier)
+        collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.identifier)
         collectionView.dataSource = dataSource
         return collectionView
     }()

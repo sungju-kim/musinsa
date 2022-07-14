@@ -27,6 +27,17 @@ final class MainViewDataSource: NSObject, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return domain?.count ?? 0
     }
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionHeader,
+              let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                               withReuseIdentifier: HeaderView.identifier,
+                                                                               for: indexPath) as? HeaderView else { return UICollectionReusableView() }
+        if let header = domain?[indexPath.section].header {
+            headerView.configure(with: header)
+        }
+        return headerView
+    }
 }
 
 // MARK: - Providing Function
