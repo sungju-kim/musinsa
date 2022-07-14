@@ -24,7 +24,7 @@ enum LayoutFactory {
             }
             section.boundarySupplementaryItems = [
                 NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1.0),
-                                                                              heightDimension: .absolute(56)),
+                                                                              heightDimension: .estimated(70)),
                                                             elementKind: UICollectionView.elementKindSectionHeader,
                                                             alignment: .top)]
             return section
