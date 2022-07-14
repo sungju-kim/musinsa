@@ -9,5 +9,5 @@ import Foundation
 
 struct Header {
     let title: String
-    let iconURL, linkURL: String?
+    let iconURL, linkURL: URL?
 }

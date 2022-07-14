@@ -10,6 +10,6 @@ import Foundation
 struct Banner: CellModelable {
     let identifier: String = BannerCell.identifier
     let linkURL: String
-    let thumbnailURL: String
+    let thumbnailURL: URL?
     let title, description, keyword: String
 }

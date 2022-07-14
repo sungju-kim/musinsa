@@ -15,6 +15,7 @@ struct BannerEntity: Decodable {
 
 extension BannerEntity: DomainConvertable {
     func toDomain() -> Banner {
+        let thumbnailURL = URL(string: thumbnailURL)
         return Banner(linkURL: linkURL,
                       thumbnailURL: thumbnailURL,
                       title: title,

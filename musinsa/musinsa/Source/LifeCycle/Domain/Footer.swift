@@ -9,5 +9,5 @@ import Foundation
 
 struct Footer {
     let type, title: String
-    let iconURL: String?
+    let iconURL: URL?
 }

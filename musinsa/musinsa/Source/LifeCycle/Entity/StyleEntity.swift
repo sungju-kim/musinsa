@@ -14,6 +14,8 @@ struct StyleEntity: Decodable {
 
 extension StyleEntity: DomainConvertable {
     func toDomain() -> Style {
+        let linkURL = URL(string: linkURL),
+        thumbnailURL = URL(string: thumbnailURL)
         return Style(linkURL: linkURL,
                      thumbnailURL: thumbnailURL)
     }

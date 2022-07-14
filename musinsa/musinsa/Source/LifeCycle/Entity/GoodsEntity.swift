@@ -18,6 +18,7 @@ struct GoodsEntity: Decodable {
 
 extension GoodsEntity: DomainConvertable {
     func toDomain() -> Goods {
+        let thumbnailURL = URL(string: thumbnailURL)
         return Goods(linkUrl: linkURL,
                      thumbnailURL: thumbnailURL,
                      brandName: brandName,
