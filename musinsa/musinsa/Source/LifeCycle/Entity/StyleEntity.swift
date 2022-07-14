@@ -11,3 +11,10 @@ struct StyleEntity: Decodable {
     let linkURL: String
     let thumbnailURL: String
 }
+
+extension StyleEntity: DomainConvertable {
+    func toDomain() -> Style {
+        return Style(linkURL: linkURL,
+                     thumbnailURL: thumbnailURL)
+    }
+}

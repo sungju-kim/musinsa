@@ -11,3 +11,11 @@ struct FooterEntity: Decodable {
     let type, title: String
     let iconURL: String?
 }
+
+extension FooterEntity: DomainConvertable {
+    func toDomain() -> Footer {
+        return Footer(type: type,
+                      title: title,
+                      iconURL: iconURL)
+    }
+}

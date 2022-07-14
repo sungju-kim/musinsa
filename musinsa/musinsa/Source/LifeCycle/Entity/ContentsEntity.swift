@@ -18,3 +18,15 @@ struct ContentsEntity: Decodable {
         case merchandise = "goods"
     }
 }
+
+extension ContentsEntity: DomainConvertable {
+    func toDomain() -> Contents {
+        let banners = banners?.map { $0.toDomain() }
+        let merchandise = merchandise?.map { $0.toDomain() }
+        let styles = styles?.map { $0.toDomain() }
+        return Contents(type: type,
+                        banners: banners,
+                        merchandise: merchandise,
+                        styles: styles)
+    }
+}

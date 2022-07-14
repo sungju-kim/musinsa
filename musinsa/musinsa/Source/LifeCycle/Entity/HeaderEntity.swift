@@ -11,3 +11,11 @@ struct HeaderEntity: Decodable {
     let title: String
     let iconURL, linkURL: String?
 }
+
+extension HeaderEntity: DomainConvertable {
+    func toDomain() -> Header {
+        return Header(title: title,
+                      iconURL: iconURL,
+                      linkURL: linkURL)
+    }
+}
