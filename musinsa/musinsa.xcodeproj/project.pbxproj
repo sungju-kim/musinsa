@@ -19,6 +19,8 @@
 		6C3A2B3F287FEF02006A8DC7 /* CellModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3A2B3E287FEF02006A8DC7 /* CellModelable.swift */; };
 		6C3A2B42287FEF35006A8DC7 /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3A2B41287FEF35006A8DC7 /* SectionType.swift */; };
 		6C3A2B44287FF559006A8DC7 /* Cellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3A2B43287FF559006A8DC7 /* Cellable.swift */; };
+		6C3A2B4628800E9F006A8DC7 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3A2B4528800E9F006A8DC7 /* ImageManager.swift */; };
+		6C3A2B4828800FE5006A8DC7 /* CacheError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3A2B4728800FE5006A8DC7 /* CacheError.swift */; };
 		6C7CE921287E722900CADF95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7CE920287E722900CADF95 /* AppDelegate.swift */; };
 		6C7CE923287E722900CADF95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7CE922287E722900CADF95 /* SceneDelegate.swift */; };
 		6C7CE925287E722900CADF95 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7CE924287E722900CADF95 /* MainViewController.swift */; };
@@ -62,6 +64,8 @@
 		6C3A2B3E287FEF02006A8DC7 /* CellModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModelable.swift; sourceTree = "<group>"; };
 		6C3A2B41287FEF35006A8DC7 /* SectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionType.swift; sourceTree = "<group>"; };
 		6C3A2B43287FF559006A8DC7 /* Cellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cellable.swift; sourceTree = "<group>"; };
+		6C3A2B4528800E9F006A8DC7 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		6C3A2B4728800FE5006A8DC7 /* CacheError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheError.swift; sourceTree = "<group>"; };
 		6C7CE91D287E722900CADF95 /* musinsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = musinsa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7CE920287E722900CADF95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C7CE922287E722900CADF95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				6C7CE967287E8F2A00CADF95 /* Extension */,
-				6C7CE943287E745900CADF95 /* Repository */,
 				6C7CE936287E72F100CADF95 /* LifeCycle */,
 				6C7CE93A287E731100CADF95 /* Present */,
 				6C7CE939287E730B00CADF95 /* Model */,
@@ -179,6 +182,7 @@
 				6C3A2B40287FEF2E006A8DC7 /* Common */,
 				6C7CE982287EC08E00CADF95 /* Domain */,
 				6C7CE956287E8CAE00CADF95 /* Entity */,
+				6C7CE943287E745900CADF95 /* Repository */,
 				6C7CE94E287E828800CADF95 /* API */,
 			);
 			name = Model;
@@ -199,6 +203,8 @@
 		6C7CE943287E745900CADF95 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				6C7CE94C287E827C00CADF95 /* NetworkManager.swift */,
+				6C3A2B4528800E9F006A8DC7 /* ImageManager.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -206,7 +212,8 @@
 		6C7CE94E287E828800CADF95 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				6C7CE94C287E827C00CADF95 /* NetworkManager.swift */,
+				6C3A2B4728800FE5006A8DC7 /* CacheError.swift */,
+				6C7CE952287E831700CADF95 /* NetworkError.swift */,
 				6C7CE94F287E82C900CADF95 /* EndPoint */,
 			);
 			path = API;
@@ -216,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				6C7CE950287E82D400CADF95 /* Requestable.swift */,
-				6C7CE952287E831700CADF95 /* NetworkError.swift */,
 				6C3A2B3A287FD3DD006A8DC7 /* MusinsaEndPoint.swift */,
 			);
 			path = EndPoint;
@@ -384,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C3A2B29287FC9A2006A8DC7 /* Section.swift in Sources */,
+				6C3A2B4828800FE5006A8DC7 /* CacheError.swift in Sources */,
 				6C7CE958287E8CCE00CADF95 /* ProductsEntity.swift in Sources */,
 				6C3A2B31287FC9BC006A8DC7 /* Banner.swift in Sources */,
 				6C7CE951287E82D400CADF95 /* Requestable.swift in Sources */,
@@ -399,6 +406,7 @@
 				6C7CE962287E8D3D00CADF95 /* StyleEntity.swift in Sources */,
 				6C3A2B42287FEF35006A8DC7 /* SectionType.swift in Sources */,
 				6C7CE979287E9DA900CADF95 /* GoodsCell.swift in Sources */,
+				6C3A2B4628800E9F006A8DC7 /* ImageManager.swift in Sources */,
 				6C7CE95C287E8D0300CADF95 /* HeaderEntity.swift in Sources */,
 				6C3A2B3B287FD3DD006A8DC7 /* MusinsaEndPoint.swift in Sources */,
 				6C7CE923287E722900CADF95 /* SceneDelegate.swift in Sources */,
