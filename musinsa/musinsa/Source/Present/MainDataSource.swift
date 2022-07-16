@@ -65,8 +65,3 @@ extension MainViewDataSource {
         self.domain = domain
     }
 }
-
-
-extension UICollectionView {
-    static let elementKindSectionPaging = "elementKindSectionPaging"
-}
