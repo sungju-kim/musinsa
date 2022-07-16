@@ -29,14 +29,27 @@ final class MainViewDataSource: NSObject, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionView.elementKindSectionHeader,
-              let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                               withReuseIdentifier: HeaderView.identifier,
-                                                                               for: indexPath) as? HeaderView else { return UICollectionReusableView() }
-        if let header = domain?[indexPath.section].header {
-            headerView.configure(with: header)
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                                   withReuseIdentifier: HeaderView.identifier,
+                                                                                   for: indexPath) as? HeaderView else { return UICollectionReusableView() }
+            if let header = domain?[indexPath.section].header {
+                headerView.configure(with: header)
+            }
+            return headerView
+        case UICollectionView.elementKindSectionFooter:
+            guard let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                                   withReuseIdentifier: FooterView.identifier,
+                                                                                   for: indexPath) as? FooterView else { return UICollectionReusableView() }
+            if let footer = domain?[indexPath.section].footer {
+                footerView.configure(with: footer)
+            }
+            return footerView
+        default:
+            return UICollectionReusableView()
         }
-        return headerView
+
     }
 }
 

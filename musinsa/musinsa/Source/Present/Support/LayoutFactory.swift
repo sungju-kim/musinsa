@@ -22,11 +22,6 @@ enum LayoutFactory {
             case .style:
                 section = createStyleSection()
             }
-            section.boundarySupplementaryItems = [
-                NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1.0),
-                                                                              heightDimension: .estimated(70)),
-                                                            elementKind: UICollectionView.elementKindSectionHeader,
-                                                            alignment: .top)]
             return section
         }
     }
@@ -57,6 +52,12 @@ enum LayoutFactory {
             section = NSCollectionLayoutSection(group: groupContainer)
         }
         section.orthogonalScrollingBehavior = .groupPaging
+        section.boundarySupplementaryItems = [
+            NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1.0),
+                                                                          heightDimension: .estimated(70)),
+                                                        elementKind: UICollectionView.elementKindSectionHeader,
+                                                        alignment: .top),
+            NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .estimated(50), heightDimension: .estimated(50)), elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)]
         return section
     }
 
@@ -107,6 +108,12 @@ enum LayoutFactory {
         )
 
         let section = NSCollectionLayoutSection(group: groupContainer)
+        section.boundarySupplementaryItems = [
+            NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1.0),
+                                                                          heightDimension: .estimated(70)),
+                                                        elementKind: UICollectionView.elementKindSectionHeader,
+                                                        alignment: .top),
+            NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .estimated(50), heightDimension: .estimated(50)), elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)]
 
         return section
     }

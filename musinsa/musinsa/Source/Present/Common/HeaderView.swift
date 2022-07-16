@@ -22,7 +22,7 @@ final class HeaderView: UICollectionReusableView {
     }()
 
     private lazy var titleLabel: UILabel = {
-        let label: UILabel = .makeCustomLabel(" ", .SFProDisplay.bold(16), .black)
+        let label: UILabel = .makeCustomLabel("", .SFProDisplay.bold(16), .black)
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
@@ -54,7 +54,7 @@ final class HeaderView: UICollectionReusableView {
 
     override func prepareForReuse() {
         imageView.image = UIImage()
-        titleLabel.text = " "
+        titleLabel.text = ""
         linkButton.isHidden = true
     }
 }

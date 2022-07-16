@@ -119,6 +119,7 @@ extension BannerCell: Cellable {
         guard let domain = domain as? Banner else { return }
         titleLabel.text = domain.title
         descriptionLabel.text = domain.description
+        keywordLabel.text = domain.keyword
         ImageManager.shared.downLoadImage(from: domain.thumbnailURL) { [weak self] result in
             switch result {
             case .success(let image):
