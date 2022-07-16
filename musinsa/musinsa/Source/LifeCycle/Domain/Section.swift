@@ -8,7 +8,7 @@
 import Foundation
 
 struct Section {
-    let contents: [CellModelable]
+    let contents: Contents
     let header: Header?
     let footer: Footer?
 

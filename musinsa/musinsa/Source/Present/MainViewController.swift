@@ -11,7 +11,8 @@ final class MainViewController: UIViewController {
 
     private let dataSource = MainViewDataSource()
     private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: LayoutFactory.create())
+        let layout = UICollectionViewCompositionalLayout(sectionProvider: dataSource.sectionProvider)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(GoodsCell.self, forCellWithReuseIdentifier: GoodsCell.identifier)
         collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.identifier)
         collectionView.register(StyleCell.self, forCellWithReuseIdentifier: StyleCell.identifier)
@@ -44,7 +45,12 @@ private extension MainViewController {
 // MARK: - Providing Function
 
 extension MainViewController {
-    func setDomain(with domain: [Section]) {
-        dataSource.setDomain(with: domain)
+    func bind(with viewModel: MainViewModel) {
+        viewModel.didLoadData.bind {[weak self] domain in
+            self?.dataSource.setDomain(with: domain)
+            self?.collectionView.reloadData()
+        }
+
+        viewModel.loadData.accept(())
     }
 }
