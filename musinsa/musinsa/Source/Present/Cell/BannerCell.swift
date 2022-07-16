@@ -28,21 +28,12 @@ final class BannerCell: UICollectionViewCell {
     }()
     private lazy var descriptionLabel: UILabel = .makeCustomLabel(" ", .SFProDisplay.regular(12), .Musinsa.mainBackGroundColor)
 
-    // MARK: - TODO 페이징 기능 구현 필요
-
-    private lazy var pageLabel: UILabel = {
-        let label: UILabel = .makeCustomLabel(" ", .SFProDisplay.regular(12), .Musinsa.mainBackGroundColor)
-        label.backgroundColor = .systemGray
-        return label
-    }()
-
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         layoutImageView()
         layoutKeywordLabel()
         layoutDescriptionLabel()
-        layoutPageLabel()
         layoutTitleLabel()
     }
 
@@ -52,7 +43,6 @@ final class BannerCell: UICollectionViewCell {
         layoutImageView()
         layoutKeywordLabel()
         layoutDescriptionLabel()
-        layoutPageLabel()
         layoutTitleLabel()
     }
 
@@ -98,16 +88,6 @@ private extension BannerCell {
 
         descriptionLabel.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview().inset(inset)
-        }
-    }
-
-    func layoutPageLabel() {
-        let inset: CGFloat = 16
-
-        addSubview(pageLabel)
-
-        pageLabel.snp.makeConstraints { make in
-            make.bottom.trailing.equalToSuperview().inset(inset)
         }
     }
 }

@@ -46,10 +46,15 @@ final class MainViewDataSource: NSObject, UICollectionViewDataSource {
                 footerView.configure(with: footer)
             }
             return footerView
+        case UICollectionView.elementKindSectionPaging:
+            guard let pageView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                                   withReuseIdentifier: BannerPageView.identifier,
+                                                                                   for: indexPath) as? BannerPageView else { return UICollectionReusableView() }
+            pageView.configure(with: indexPath.item, at: domain?[indexPath.section].count ?? 0)
+            return pageView
         default:
             return UICollectionReusableView()
         }
-
     }
 }
 
@@ -59,4 +64,9 @@ extension MainViewDataSource {
     func setDomain(with domain: [Section]) {
         self.domain = domain
     }
+}
+
+
+extension UICollectionView {
+    static let elementKindSectionPaging = "elementKindSectionPaging"
 }

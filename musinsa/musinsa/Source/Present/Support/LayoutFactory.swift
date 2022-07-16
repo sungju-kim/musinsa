@@ -58,6 +58,7 @@ enum LayoutFactory {
                                                         elementKind: UICollectionView.elementKindSectionHeader,
                                                         alignment: .top),
             NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .estimated(50), heightDimension: .estimated(50)), elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)]
+        section.contentInsets = .init(top: inset*7, leading: 0, bottom: 0, trailing: 0)
         return section
     }
 
@@ -76,6 +77,16 @@ enum LayoutFactory {
         let section = NSCollectionLayoutSection(group: group)
 
         section.orthogonalScrollingBehavior = .groupPaging
+
+        section.boundarySupplementaryItems = [
+            NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .estimated(70),
+                                                                          heightDimension: .estimated(70)),
+                                                        elementKind: UICollectionView.elementKindSectionPaging,
+                                                        alignment: .bottomTrailing)]
+        section.contentInsets = .init(top: 0,
+                                      leading: 0,
+                                      bottom: -inset*7,
+                                      trailing: inset*3)
 
         return section
     }

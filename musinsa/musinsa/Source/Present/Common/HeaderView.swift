@@ -79,7 +79,7 @@ private extension HeaderView {
 
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
     }
 
@@ -89,7 +89,7 @@ private extension HeaderView {
 
         linkButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-inset)
-            make.centerY.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
     }
 
