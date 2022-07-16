@@ -61,6 +61,8 @@
 		6CAA49AA2882DA170025D125 /* StyleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAA49A92882DA170025D125 /* StyleDataSource.swift */; };
 		6CAA49B12882EC4A0025D125 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAA49B02882EC4A0025D125 /* MainViewModel.swift */; };
 		6CAA49B328830AE80025D125 /* SubDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAA49B228830AE80025D125 /* SubDataSource.swift */; };
+		6CAA49B528831EF30025D125 /* BannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAA49B428831EF30025D125 /* BannerViewModel.swift */; };
+		6CAA49B7288320030025D125 /* PageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAA49B6288320030025D125 /* PageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +121,8 @@
 		6CAA49A92882DA170025D125 /* StyleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleDataSource.swift; sourceTree = "<group>"; };
 		6CAA49B02882EC4A0025D125 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		6CAA49B228830AE80025D125 /* SubDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubDataSource.swift; sourceTree = "<group>"; };
+		6CAA49B428831EF30025D125 /* BannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewModel.swift; sourceTree = "<group>"; };
+		6CAA49B6288320030025D125 /* PageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +335,8 @@
 			isa = PBXGroup;
 			children = (
 				6CAA49B02882EC4A0025D125 /* MainViewModel.swift */,
+				6CAA49B428831EF30025D125 /* BannerViewModel.swift */,
+				6CAA49B6288320030025D125 /* PageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -474,6 +480,7 @@
 				6C3A2B42287FEF35006A8DC7 /* SectionType.swift in Sources */,
 				6C7CE979287E9DA900CADF95 /* GoodsCell.swift in Sources */,
 				6CAA49B328830AE80025D125 /* SubDataSource.swift in Sources */,
+				6CAA49B7288320030025D125 /* PageViewModel.swift in Sources */,
 				6CAA499A2882C8570025D125 /* UICollectionView+extension.swift in Sources */,
 				6C3A2B4628800E9F006A8DC7 /* ImageManager.swift in Sources */,
 				6C7CE95C287E8D0300CADF95 /* HeaderEntity.swift in Sources */,
@@ -494,6 +501,7 @@
 				6C3A2B3D287FE25A006A8DC7 /* MainDataSource.swift in Sources */,
 				6C3A2B33287FC9C3006A8DC7 /* Goods.swift in Sources */,
 				6CAA49942882ABFE0025D125 /* PaddingLabel.swift in Sources */,
+				6CAA49B528831EF30025D125 /* BannerViewModel.swift in Sources */,
 				6CAA49A42882D23C0025D125 /* Contents.swift in Sources */,
 				6C7CE97F287EAFE700CADF95 /* BannerCell.swift in Sources */,
 				6C3A2B37287FCA28006A8DC7 /* DomainConvertable.swift in Sources */,

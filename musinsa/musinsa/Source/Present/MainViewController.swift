@@ -50,6 +50,7 @@ extension MainViewController {
             self?.dataSource.setDomain(with: domain)
             self?.collectionView.reloadData()
         }
+        collectionView.insertItems(at: <#T##[IndexPath]#>)
 
         viewModel.loadData.accept(())
     }

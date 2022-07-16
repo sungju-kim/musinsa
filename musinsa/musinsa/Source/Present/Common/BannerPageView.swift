@@ -19,6 +19,7 @@ final class BannerPageView: UICollectionReusableView {
         label.font = .SFProDisplay.regular(12)
         label.layer.cornerRadius = 10
         label.clipsToBounds = true
+        label.padding = UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10)
 
         return label
     }()
@@ -43,7 +44,8 @@ private extension BannerPageView {
         addSubview(label)
 
         label.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalToSuperview()
+            make.centerX.equalToSuperview()
         }
     }
 }
@@ -51,7 +53,9 @@ private extension BannerPageView {
 // MARK: - Providing Function
 
 extension BannerPageView {
-    func configure(with itemIndex: Int, at totalItems: Int) {
-        label.text = "\(itemIndex+1)  /  \(totalItems)"
+    func configure(with viewModel: PageViewModel) {
+        viewModel.didChangePage.bind {[weak self] current, total in
+            self?.label.text = "\(current) / \(total)"
+        }
     }
 }

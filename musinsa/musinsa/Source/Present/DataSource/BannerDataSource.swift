@@ -8,10 +8,10 @@
 import UIKit
 
 final class BannerDataSource {
-    private var domain: Section?
+    private var viewModel: BannerViewModel?
 
     var count: Int {
-        domain?.count ?? 0
+        viewModel?.count ?? 0
     }
 }
 
@@ -19,7 +19,7 @@ final class BannerDataSource {
 
 extension BannerDataSource {
     func setDomain(section: Section) {
-        domain = section
+        viewModel = BannerViewModel(section: section)
     }
 }
 
@@ -56,6 +56,11 @@ extension BannerDataSource: SubDataSource {
                                       bottom: -inset*7,
                                       trailing: inset*3)
 
+        section.visibleItemsInvalidationHandler = {[weak self] cells, offset, _ in
+            guard let page = Int(exactly: offset.x / (cells[0].frame.width + (inset*2))) else { return }
+            self?.viewModel?.pageDidChange.accept(page)
+        }
+
         return section
     }
 
@@ -63,7 +68,7 @@ extension BannerDataSource: SubDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCell.identifier, for: indexPath) as? BannerCell else {
             return UICollectionViewCell()
         }
-        guard let cellViewModel = domain?.contents.data[indexPath.item] else { return cell}
+        guard let cellViewModel = viewModel?[indexPath.item] else { return cell}
         cell.configure(with: cellViewModel)
         return cell
     }
@@ -74,6 +79,8 @@ extension BannerDataSource: SubDataSource {
             guard let pageView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                                  withReuseIdentifier: BannerPageView.identifier,
                                                                                  for: indexPath) as? BannerPageView else { return UICollectionReusableView() }
+            guard let pageViewModel = viewModel?.pageViewModel else { return pageView }
+            pageView.configure(with: pageViewModel)
             return pageView
         default:
             return UICollectionReusableView()
