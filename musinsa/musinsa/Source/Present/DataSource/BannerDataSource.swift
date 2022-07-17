@@ -21,11 +21,19 @@ extension BannerDataSource {
     func setDomain(section: Section) {
         viewModel = BannerViewModel(section: section)
     }
+
+    func configure(with viewModel: BannerViewModel) {
+        self.viewModel = viewModel
+    }
 }
 
 // MARK: - Providing View
 
 extension BannerDataSource: SubDataSource {
+    func configure(with viewModel: SectionViewModel) {
+        self.viewModel = viewModel as? BannerViewModel
+    }
+
     var section: NSCollectionLayoutSection {
         let inset: CGFloat = 8
         let itemSize = NSCollectionLayoutSize(

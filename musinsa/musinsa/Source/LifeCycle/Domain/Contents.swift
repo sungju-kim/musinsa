@@ -8,6 +8,7 @@
 import Foundation
 
 struct Contents {
+    let type: SectionType
     let data: [CellModelable]
 
     var count: Int {

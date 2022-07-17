@@ -36,9 +36,9 @@ extension MainViewDataSource {
             subDataSources[sectionIndex].section
     }
 
-    func setDomain(with domain: [Section]) {
-        domain.enumerated().forEach { index, value in
-            subDataSources[index].setDomain(section: value)
+    func setViewModel(with viewModels: [SectionViewModel]) {
+        viewModels.enumerated().forEach { index, viewModel in
+            subDataSources[index].configure(with: viewModel)
         }
     }
 }

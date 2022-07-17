@@ -7,9 +7,9 @@
 
 import Foundation
 
-final class BannerViewModel {
+final class BannerViewModel: SectionViewModel {
     private var section: Section
-    let pageViewModel: PageViewModel = PageViewModel()
+    private(set) var pageViewModel: PageViewModel = PageViewModel()
 
     var count: Int {
         return section.count

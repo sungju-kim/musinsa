@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SectionType: String {
+@frozen enum SectionType: String {
     case banner = "BANNER"
     case grid = "GRID"
     case scroll = "SCROLL"

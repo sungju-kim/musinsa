@@ -7,11 +7,11 @@
 
 import UIKit
 
-class FooterView: UICollectionReusableView {
+final class FooterView: UICollectionReusableView {
     static var identifier: String {
         return "\(self)"
     }
-    enum LabelType: String {
+    @frozen enum LabelType: String {
         case recommand = "REFRESH"
         case more = "MORE"
     }
@@ -63,8 +63,8 @@ private extension FooterView {
 // MARK: - Providing Funtion
 
 extension FooterView {
-    func configure(with domain: Footer) {
-        guard let type: LabelType = LabelType(rawValue: domain.type) else { return }
+    func configure(with viewModel: FooterViewModel) {
+        guard let type: LabelType = LabelType(rawValue: viewModel.footer.type) else { return }
         switch type {
         case .recommand:
             let image = UIImage(systemName: "goforward")
@@ -73,5 +73,9 @@ extension FooterView {
         case .more:
             button.setTitle("더보기", for: .normal)
         }
+
+        button.addAction(UIAction { _ in
+            viewModel.action.accept(())
+        }, for: .touchUpInside)
     }
 }

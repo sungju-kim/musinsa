@@ -9,8 +9,4 @@ import Foundation
 
 final class PageViewModel {
     let didChangePage = PublishRelay<(Int, Int)>()
-
-    init() {
-
-    }
 }

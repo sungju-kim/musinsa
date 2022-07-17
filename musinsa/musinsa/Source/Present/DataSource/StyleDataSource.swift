@@ -8,29 +8,20 @@
 import UIKit
 
 final class StyleDataSource {
-    private var domain: Section?
-
-    private var visibleDomainCounts: Int = 0
+    private var viewModel: StyleViewModel?
 
     var count: Int {
-        let count = domain?.count ?? 0
-        return visibleDomainCounts > count ? count : visibleDomainCounts
-    }
-}
-
-// MARK: - Providing Function
-
-extension StyleDataSource {
-    func setDomain(section: Section) {
-        domain = section
-        guard let count = domain?.count else { return }
-        visibleDomainCounts = count > 4 ? 4 : count
+        return viewModel?.count ?? 0
     }
 }
 
 // MARK: - Providing View
 
 extension StyleDataSource: SubDataSource {
+    func configure(with viewModel: SectionViewModel) {
+        self.viewModel = viewModel as? StyleViewModel
+    }
+
     var section: NSCollectionLayoutSection {
         let inset: CGFloat = 8
         let itemSize = NSCollectionLayoutSize(
@@ -75,7 +66,7 @@ extension StyleDataSource: SubDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StyleCell.identifier, for: indexPath) as? StyleCell else {
             return UICollectionViewCell()
         }
-        guard let cellViewModel = domain?.contents.data[indexPath.item] else { return cell}
+        guard let cellViewModel = viewModel?[indexPath.item] else { return cell}
         cell.configure(with: cellViewModel)
         return cell
     }
@@ -86,7 +77,7 @@ extension StyleDataSource: SubDataSource {
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                                    withReuseIdentifier: HeaderView.identifier,
                                                                                    for: indexPath) as? HeaderView else { return UICollectionReusableView() }
-            if let header = domain?.header {
+            if let header = viewModel?.headerViewModel {
                 headerView.configure(with: header)
             }
             return headerView
@@ -94,7 +85,7 @@ extension StyleDataSource: SubDataSource {
             guard let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                                    withReuseIdentifier: FooterView.identifier,
                                                                                    for: indexPath) as? FooterView else { return UICollectionReusableView() }
-            if let footer = domain?.footer {
+            if let footer = viewModel?.footerViewModel {
                 footerView.configure(with: footer)
             }
             return footerView

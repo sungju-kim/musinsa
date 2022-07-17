@@ -8,24 +8,20 @@
 import UIKit
 
 final class ScrollDataSource {
-    private var domain: Section?
+    private var viewModel: ScrollViewModel?
 
     var count: Int {
-        return domain?.count ?? 0
-    }
-}
-
-// MARK: - Providing Function
-
-extension ScrollDataSource {
-    func setDomain(section: Section) {
-        domain = section
+        return viewModel?.count ?? 0
     }
 }
 
 // MARK: - Providing View
 
 extension ScrollDataSource: SubDataSource {
+    func configure(with viewModel: SectionViewModel) {
+        self.viewModel = viewModel as? ScrollViewModel
+    }
+
     var section: NSCollectionLayoutSection {
         let inset: CGFloat = 8
 
@@ -60,8 +56,8 @@ extension ScrollDataSource: SubDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GoodsCell.identifier, for: indexPath) as? GoodsCell else {
             return UICollectionViewCell()
         }
-        guard let cellViewModel = domain?.contents.data[indexPath.item] else { return cell}
-        cell.configure(with: cellViewModel)
+        guard let cellModel = viewModel?[indexPath.item] else { return cell}
+        cell.configure(with: cellModel)
         return cell
     }
 
@@ -71,7 +67,7 @@ extension ScrollDataSource: SubDataSource {
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                                    withReuseIdentifier: HeaderView.identifier,
                                                                                    for: indexPath) as? HeaderView else { return UICollectionReusableView() }
-            if let header = domain?.header {
+            if let header = viewModel?.headerViewModel {
                 headerView.configure(with: header)
             }
             return headerView
@@ -79,7 +75,7 @@ extension ScrollDataSource: SubDataSource {
             guard let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                                    withReuseIdentifier: FooterView.identifier,
                                                                                    for: indexPath) as? FooterView else { return UICollectionReusableView() }
-            if let footer = domain?.footer {
+            if let footer = viewModel?.footerViewModel {
                 footerView.configure(with: footer)
             }
             return footerView

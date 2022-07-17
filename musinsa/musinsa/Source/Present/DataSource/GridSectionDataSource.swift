@@ -8,13 +8,11 @@
 import UIKit
 
 final class GridSectionDataSource {
-    private var domain: Section?
-
+    private var viewModel: GridViewModel?
     private var visibleDomainCounts: Int = 0
 
     var count: Int {
-        let count = domain?.count ?? 0
-        return visibleDomainCounts > count ? count : visibleDomainCounts
+        return viewModel?.count ?? 0
     }
 
     init() {
@@ -30,19 +28,13 @@ private extension GridSectionDataSource {
     }
 }
 
-// MARK: - Providing Function
-
-extension GridSectionDataSource {
-    func setDomain(section: Section) {
-        domain = section
-        guard let count = domain?.count else { return }
-        visibleDomainCounts = count > 6 ? 6 : count
-    }
-}
-
 // MARK: - Providing View
 
 extension GridSectionDataSource: SubDataSource {
+    func configure(with viewModel: SectionViewModel) {
+        self.viewModel = viewModel as? GridViewModel
+    }
+
     var section: NSCollectionLayoutSection {
         let inset: CGFloat = 8
 
@@ -83,7 +75,7 @@ extension GridSectionDataSource: SubDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GoodsCell.identifier, for: indexPath) as? GoodsCell else {
             return UICollectionViewCell()
         }
-        guard let cellViewModel = domain?.contents.data[indexPath.item] else { return cell}
+        guard let cellViewModel = viewModel?[indexPath.item] else { return cell}
         cell.configure(with: cellViewModel)
         return cell
     }
@@ -94,16 +86,19 @@ extension GridSectionDataSource: SubDataSource {
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                                    withReuseIdentifier: HeaderView.identifier,
                                                                                    for: indexPath) as? HeaderView else { return UICollectionReusableView() }
-            if let header = domain?.header {
+            if let header = viewModel?.headerViewModel {
                 headerView.configure(with: header)
+            }
+            if let headerViewModel = viewModel?.headerViewModel {
+                headerView.configure(with: headerViewModel)
             }
             return headerView
         case UICollectionView.elementKindSectionFooter:
             guard let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                                    withReuseIdentifier: FooterView.identifier,
                                                                                    for: indexPath) as? FooterView else { return UICollectionReusableView() }
-            if let footer = domain?.footer {
-                footerView.configure(with: footer)
+            if let footerViewModel = viewModel?.footerViewModel {
+                footerView.configure(with: footerViewModel)
             }
             return footerView
         default:

@@ -125,4 +125,26 @@ extension HeaderView {
             }
         }
     }
+
+    func configure(with viewModel: HeaderViewModel) {
+        titleLabel.text = viewModel.header?.title.replacingOccurrences(of: ":", with: "\n")
+
+        ImageManager.shared.downLoadImage(from: viewModel.header?.iconURL) { [weak self]result in
+            switch result {
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.imageView.image = image
+                    self?.updateTitleLayout()
+                    if let linkURL = viewModel.header?.linkURL {
+                        self?.linkButton.isHidden = false
+                        _ = linkURL
+                        // MARK: - TODO url 연결
+                    }
+                }
+            case .failure(let error):
+                _ = error
+                // MARK: - TODO Error Handling
+            }
+        }
+    }
 }

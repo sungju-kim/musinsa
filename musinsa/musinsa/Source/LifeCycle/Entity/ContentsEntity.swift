@@ -31,6 +31,6 @@ extension ContentsEntity: DomainConvertable {
         case .style:
             contents = self.styles?.map { $0.toDomain() } ?? []
         }
-        return Contents(data: contents)
+        return Contents(type: type, data: contents)
     }
 }

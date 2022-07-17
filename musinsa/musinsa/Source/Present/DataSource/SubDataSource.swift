@@ -11,7 +11,7 @@ protocol SubDataSource {
     var section: NSCollectionLayoutSection { get }
     var count: Int { get }
 
-    func setDomain(section: Section)
+    func configure(with viewModel: SectionViewModel)
     func dequeCell(from collectionView: UICollectionView, at indexPath: IndexPath) -> UICollectionViewCell
     func reusableView(from collectionView: UICollectionView, kind: String, at indexPath: IndexPath) -> UICollectionReusableView
 }

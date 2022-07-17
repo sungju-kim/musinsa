@@ -46,11 +46,18 @@ private extension MainViewController {
 
 extension MainViewController {
     func bind(with viewModel: MainViewModel) {
-        viewModel.didLoadData.bind {[weak self] domain in
-            self?.dataSource.setDomain(with: domain)
+        viewModel.didLoadData.bind {[weak self] viewModel in
+            self?.dataSource.setViewModel(with: viewModel)
             self?.collectionView.reloadData()
         }
-        collectionView.insertItems(at: <#T##[IndexPath]#>)
+
+        viewModel.insertItem.bind {[weak self] indexPath in
+            self?.collectionView.insertItems(at: indexPath)
+        }
+
+        viewModel.refreshItem.bind { [weak self] index in
+            self?.collectionView.reloadSections(IndexSet(integer: index))
+        }
 
         viewModel.loadData.accept(())
     }
