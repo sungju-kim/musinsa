@@ -18,7 +18,7 @@ final class StyleViewModel: SectionViewModel {
     }
 
     let updateIndex = PublishRelay<[Int]>()
-    
+
     subscript(_ index: Int) -> CellModelable? {
         return section.contents[index]
     }

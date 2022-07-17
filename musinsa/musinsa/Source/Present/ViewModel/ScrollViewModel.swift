@@ -12,13 +12,12 @@ final class ScrollViewModel: SectionViewModel {
     private(set) var headerViewModel: HeaderViewModel?
     private(set) var footerViewModel: FooterViewModel?
 
-    private var visibleCount: Int = 4
     var count: Int {
-        return visibleCount
+        return contents.count
     }
 
     let refeshTapped = PublishRelay<Void>()
-    
+
     subscript(_ index: Int) -> CellModelable? {
         return contents[index]
     }
